@@ -1,6 +1,6 @@
 config = {
     "name": "pctools_bot",
-    "token": "1570959747:AAEzZ_3wvfnrwwGvU9bJ9HqfS3L_fDUcOf8"
+    "token": "1570959747:AAFLsCDSwen6VcCBq5Gp87aPMwlRr7Feu8Y"
 }
 
 

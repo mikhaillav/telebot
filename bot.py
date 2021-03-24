@@ -3,6 +3,7 @@ from telebot import types
 import configure
 
 bot = telebot.TeleBot(configure.config["token"])
+CHATID =  152474157
 
 @bot.message_handler(commands = ["start"])
 def get_start(message):
@@ -58,8 +59,9 @@ def answer(call):
         item_id = types.KeyboardButton("МОЙ ID")
         item_name = types.KeyboardButton("МОЙ НИК")
         item_start = types.KeyboardButton("/start")
+        item_test = types.KeyboardButton("отправить сообщение бате")
 
-        markup_reply.add(item_id, item_name, item_start)
+        markup_reply.add(item_id, item_name, item_start,item_test)
         bot.send_message(call.message.chat.id, "окей",reply_markup = markup_reply)
 
     elif call.data == "never":
@@ -77,5 +79,7 @@ def get_message(message):
         item_No = types.InlineKeyboardButton(text= "лучше не надо", callback_data = "net")
         markup_inline.add(item_Yes, item_No)
         bot.send_message(message.chat.id ,"могу показать фото собаки", reply_markup= markup_inline)
+    elif message.text == "отправить сообщение бате":
+        bot.send_message(CHATID, "hi world")
 
 bot.polling(none_stop = True, interval= 0)
